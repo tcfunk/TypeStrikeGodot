@@ -36,6 +36,9 @@ func _process(delta):
 	var player_pos = player_path.progress
 	
 	while enemies.size() > 0 && enemies[0].path_position <= player_pos:
-		var enemy : EnemyMarker = enemies.pop_front()
-		enemy.enable_enemy()
-		Messenger.wave_started.emit()
+		var enemy = enemies.pop_front()
+		enemy.notify.emit()
+		if enemy is EnemyMarker:
+			#var enemy : EnemyMarker = enemies.pop_front()
+			enemy.enable_enemy()
+			Messenger.wave_started.emit()

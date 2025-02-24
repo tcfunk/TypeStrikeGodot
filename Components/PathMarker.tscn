@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ypgnj5o6c7ym"]
+
+[ext_resource type="Script" path="res://Components/path_progress_notifier.gd" id="1_2a0c2"]
+[ext_resource type="Material" uid="uid://bh8chiqnmmi0t" path="res://Materials/blue.tres" id="2_a5a15"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_q5j34"]
+material = ExtResource("2_a5a15")
+radial_segments = 4
+rings = 1
+
+[node name="PathProgressNotifier" type="Node3D" groups=["enemy_markers"]]
+script = ExtResource("1_2a0c2")
+
+[node name="PathMarker" type="Node3D" parent="."]
+
+[node name="MarkerShape" type="CSGMesh3D" parent="PathMarker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("SphereMesh_q5j34")
+
+[node name="Label3D" type="Label3D" parent="PathMarker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41057, 0)
+pixel_size = 0.0015
+billboard = 2
+fixed_size = true
+text = "path
+marker"
+font_size = 16

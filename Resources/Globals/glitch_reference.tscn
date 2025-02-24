@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8s2uun3vwxi6"]
+[gd_scene load_steps=4 format=3 uid="uid://b8s2uun3vwxi6"]
 
 [ext_resource type="QuadMesh" uid="uid://b3aoqx7gn4tyo" path="res://Meshes/StaticMeshes/glitch_reference.tres" id="1_yhk3s"]
 [ext_resource type="Script" path="res://Scripts/GlitchManager.gd" id="2_8n378"]
+[ext_resource type="Script" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="3_t7b81"]
 
 [node name="GlitchReference" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.364338, 0)
 mesh = ExtResource("1_yhk3s")
 script = ExtResource("2_8n378")
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="GlitchReduceTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
+[node name="RhythmNotifier" type="Node" parent="."]
+script = ExtResource("3_t7b81")
+bpm = 120.0
+beat_length = 0.5
+running = true
